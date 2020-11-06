@@ -15,6 +15,14 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
+        Integer noOfAttendees = 500;
+        FestivalGate gate = new FestivalGate();
+
+       for (int i=0; i<noOfAttendees;i++) {
+           TicketType ticketType = TicketTypeRandom.RandomTicket();
+           FestivalAttendeeThread festivalAttendee = new FestivalAttendeeThread(ticketType, gate);
+           festivalAttendee.start();
+       }
         assertTrue( true );
     }
 }
